@@ -129,7 +129,7 @@ Each documentation file includes:
 Python:
 A.setValues(row, cols, values)
 
-C:
+Calls C function:
 MatSetValues
 
 Purpose:
@@ -142,7 +142,7 @@ Adds entries into the sparse matrix A.
 Python:
 ksp.setOperators(A)
 
-C:
+Calls C function:
 KSPSetOperators
 
 Purpose:
@@ -155,7 +155,7 @@ Attaches the matrix A to the solver so PETSc knows which system to solve.
 Python:
 ksp.solve(b, x)
 
-C:
+Calls C function:
 KSPSolve
 
 Purpose:
