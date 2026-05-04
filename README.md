@@ -28,35 +28,47 @@ The translated Python program builds a sparse 2D finite-difference matrix, creat
 
 ## Mathematical Problem
 
-The original PETSc tutorial builds a sparse matrix that resembles a five-point finite-difference stencil on a two-dimensional grid. In this project, the unknowns are arranged on an m x n grid. Each grid point corresponds to one unknown in the vector x, so the total number of unknowns is mn.
+The original PETSc tutorial builds a sparse matrix that resembles a five-point finite-difference stencil on a two-dimensional grid. In this project, the unknowns are arranged on an $m \times n$ grid. Each grid point corresponds to one unknown in the vector $x \in \mathbb{R}^{mn}$.
 
-The linear system is:
+The linear system is
 
-A x = b
+$$
+Ax = b
+$$
 
-where A is an mn x mn sparse matrix. For an interior grid point, the stencil has the form:
+where $A \in \mathbb{R}^{mn \times mn}$ is a sparse matrix. For an interior grid point, the stencil has the form
 
-(Ax)[i,j] = 4x[i,j] - x[i-1,j] - x[i+1,j] - x[i,j-1] - x[i,j+1]
+$$
+(Ax)_{i,j} = 4x_{i,j} - x_{i-1,j} - x_{i+1,j} - x_{i,j-1} - x_{i,j+1}.
+$$
 
 This is the standard five-point stencil associated with the two-dimensional discrete Laplacian.
 
-The exact solution is chosen to be:
+The exact solution is chosen to be
 
-u = [1, 1, ..., 1]^T
+$$
+u = \mathbf{1},
+$$
 
-That means u is the vector of all ones. The right-hand side is constructed by matrix-vector multiplication:
+the vector of all ones. The right-hand side is then constructed by matrix-vector multiplication:
 
-b = A u
+$$
+b = Au.
+$$
 
-After PETSc solves:
+After PETSc solves
 
-A x = b
+$$
+Ax = b,
+$$
 
-we compare the computed solution x against the known exact solution u. The error is measured using the Euclidean norm:
+we compare the computed solution $x$ against the known exact solution $u$. The error is measured using the Euclidean norm:
 
-||x - u||_2
+$$
+\|x - u\|_2.
+$$
 
-A small value of ||x - u||_2 means PETSc recovered the known exact solution accurately.
+A small value of $\|x - u\|_2$ means PETSc recovered the known exact solution accurately.
 
 ## AI Translation Experience
 
