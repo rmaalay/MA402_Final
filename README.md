@@ -86,19 +86,6 @@ The AI translation required debugging because PETSc objects must be assembled be
 
 ## Files in This Project
 
-## Main Usage
-
-Example usage of the Python module:
-
-```python
-from tutorial_module import Poisson2DKSPSolver
-
-solver = Poisson2DKSPSolver(m=20, n=20)
-result = solver.solve()
-
-print(result.error_norm)
-```
-
 tutorial_module.py  
 Contains the full PETSc solver implementation.
 
@@ -122,6 +109,19 @@ Each documentation file includes:
 - Example usage  
 
 ---
+
+## Main Usage
+
+Example usage of the Python module:
+
+```python
+from tutorial_module import Poisson2DKSPSolver
+
+solver = Poisson2DKSPSolver(m=20, n=20)
+result = solver.solve()
+
+print(result.error_norm)
+```
 
 ## Source-Mapped Functions
 
