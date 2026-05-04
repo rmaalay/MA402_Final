@@ -97,6 +97,7 @@ solver = Poisson2DKSPSolver(m=20, n=20)
 result = solver.solve()
 
 print(result.error_norm)
+```
 
 tutorial_module.py  
 Contains the full PETSc solver implementation.
