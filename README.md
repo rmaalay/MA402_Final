@@ -84,13 +84,121 @@ The AI translation required debugging because PETSc objects must be assembled be
 
 ---
 
-## Files
+## Files in This Project
 
-### `tutorial_module.py`
+tutorial_module.py  
+Contains the full PETSc solver implementation.
 
-Contains the working Python solver.
+tutorial_presentation.ipynb  
+A notebook that runs the solver, prints results, and visualizes the solution.
 
-Main class:
+docs/  
+Contains documentation for three mapped PETSc functions:
 
-```python
-Poisson2DKSPSolver
+- mat_set_values.md  
+- ksp_set_operators.md  
+- ksp_solve.md  
+
+Each documentation file includes:
+
+- Python method  
+- Underlying C function  
+- C source link (GitLab)  
+- Mathematical explanation  
+- Parameters and return values  
+- Example usage  
+
+---
+
+## Source-Mapped Functions
+
+### 1. Mat.setValues
+
+Python:
+A.setValues(row, cols, values)
+
+C:
+MatSetValues
+
+Purpose:
+Adds entries into the sparse matrix A.
+
+---
+
+### 2. KSP.setOperators
+
+Python:
+ksp.setOperators(A)
+
+C:
+KSPSetOperators
+
+Purpose:
+Attaches the matrix A to the solver so PETSc knows which system to solve.
+
+---
+
+### 3. KSP.solve
+
+Python:
+ksp.solve(b, x)
+
+C:
+KSPSolve
+
+Purpose:
+Solves the linear system:
+
+A x = b
+
+---
+
+## How to Run
+
+Install dependencies:
+
+pip install petsc petsc4py numpy matplotlib
+
+Run the Python script:
+
+python tutorial_module.py
+
+Run the notebook:
+
+jupyter notebook tutorial_presentation.ipynb
+
+---
+
+## Expected Output
+
+A typical run should print something like:
+
+Grid size: 20 x 20  
+Number of unknowns: 400  
+KSP converged reason: 2  
+KSP iterations: 5  
+2-norm error ||x-u||_2: 1.23e-12  
+
+The exact iteration count may vary depending on solver settings.
+
+---
+
+## References
+
+PETSc Tutorial:  
+https://petsc.org/main/src/ksp/ksp/tutorials/ex2.c.html  
+
+PETSc GitLab Repository:  
+https://gitlab.com/petsc/petsc  
+
+petsc4py Documentation:  
+https://petsc.org/release/petsc4py/  
+
+MatSetValues:  
+https://petsc.org/main/manualpages/Mat/MatSetValues/  
+
+KSPSetOperators:  
+https://petsc.org/main/manualpages/KSP/KSPSetOperators/  
+
+KSPSolve:  
+https://petsc.org/main/manualpages/KSP/KSPSolve/  
