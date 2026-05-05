@@ -45,19 +45,21 @@ None — modifies the matrix in place
 
 ## Mathematical Meaning
 
-Defines entries of the matrix \( A \) in the system:
+Defines entries of the matrix \(A\) in the system:
 
-```
-A x = b
-```
+\[
+Ax = b
+\]
 
 In this project, it builds the finite-difference stencil:
 
-```
-(Ax)[i,j] = 4x[i,j] - x[i-1,j] - x[i+1,j] - x[i,j-1] - x[i,j+1]
-```
+\[
+(Ax)_{i,j} = 4x_{i,j} - x_{i-1,j} - x_{i+1,j} - x_{i,j-1} - x_{i,j+1}
+\]
 
 Each call to `setValues` inserts one row of this stencil into the matrix.
+
+---
 
 ## Example
 
