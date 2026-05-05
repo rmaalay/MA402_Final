@@ -44,41 +44,41 @@ None — solution is stored in `x`
 
 Solves:
 
-\[
+$$
 Ax = b
-\]
+$$
 
 The solver generates approximations:
 
-\[
+$$
 x_0, x_1, x_2, \dots
-\]
+$$
 
 and minimizes the residual:
 
-\[
-r_k = b - Ax_k
-\]
+$$
+r_k = b - A x_k
+$$
 
 until convergence.
 
 In this project:
 
-\[
+$$
 b = Au
-\]
+$$
 
 so the true solution is:
 
-\[
+$$
 x = u
-\]
+$$
 
 We verify accuracy using:
 
-\[
+$$
 \|x - u\|_2
-\]
+$$
 
 ---
 
